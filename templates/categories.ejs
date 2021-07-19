@@ -1,0 +1,15 @@
+<%- "<?php" %>
+
+define('BLOG_CATEGORIES', array (
+  <% categories.forEach(function (category) { %>
+    '<%= category.id %>' => array(
+      'id' => '<%= category.id %>',
+      'name' => '<%= category.name %>',
+      'slugs' => array(
+        <% category.slugs.forEach(function (slug) { %>
+           '<%= slug %>',
+        <% }); %>    
+      ),
+    ),
+  <% }); %>
+));

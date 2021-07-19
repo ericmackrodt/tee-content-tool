@@ -1,0 +1,15 @@
+<%- "<?php" %>
+
+define('BLOG_TAGS', array (
+  <% tags.forEach(function (tag) { %>
+    '<%= tag.id %>' => array(
+      'id' => '<%= tag.id %>',
+      'name' => '<%= tag.name %>',
+      'slugs' => array(
+        <% tag.slugs.forEach(function (slug) { %>
+           '<%= slug %>',
+        <% }); %>    
+      ),
+    ),
+  <% }); %>
+));

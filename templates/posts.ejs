@@ -1,0 +1,35 @@
+<%- "<?php" %>
+
+define('BLOG_POSTS', array (
+  <% posts.forEach(function (post) { %>
+    '<%= post.slug %>' => array(
+      'title'=> '<%= post.title %>',
+      'date' => '<%= post.date %>',
+      'tags' => array(
+        <% post.tags.forEach(function (tag) { %>
+          array(
+            'id' => '<%= tag.id %>',
+            'name' => '<%= tag.name %>',
+          ),
+        <% }); %>
+      ),
+      'categories' => array(
+        <% post.categories.forEach(function (category) { %>
+          array(
+            'id' => '<%= category.id %>',
+            'name' => '<%= category.name %>',
+          ),
+        <% }); %>
+      ),
+      'image' => '<%= post.image %>',
+      'slug' => '<%= post.slug %>',
+      'description' => '<%= post.description %>',
+    ),
+  <% }); %>
+));
+
+define('BLOG_POSTS_ORDER', array(
+  <% posts.forEach(function (post) { %>
+    '<%= post.slug %>',
+  <% }); %>
+));
